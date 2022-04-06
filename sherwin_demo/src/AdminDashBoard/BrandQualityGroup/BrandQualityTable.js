@@ -35,11 +35,11 @@ function BrandQualityTable() {
   }
 
   const rows = [
-    createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
-    createData('AFL31', 'AFL31 HYDROPLUS SELF SEALER', 'Sherwin-Williams Product Finishes Europe'),
-    createData('AD1430', 'AD1430 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
-    createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
-    createData('AF74','AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
+    createData('Frozen yoghurt', 159, 6.0, 24),
+    createData('Ice cream sandwich', 237, 9.0, 37),
+    createData('Eclair', 262, 16.0, 24),
+    createData('Cupcake', 305, 3.7, 67),
+    createData('Gingerbread', 356, 16.0, 49),
   ];
 
  
@@ -52,22 +52,22 @@ function BrandQualityTable() {
         <TableContainer  >
           <Table  >
             <TableHead >
-              <TableRow >
+              <TableRow className='table'>
                 <StyledTableCell>Code</StyledTableCell>
-                <StyledTableCell align="left">Discription</StyledTableCell>
-                <StyledTableCell align="left">Brand</StyledTableCell>
-                <StyledTableCell align="center">Delete</StyledTableCell>
+                <StyledTableCell align="right">Discription</StyledTableCell>
+                <StyledTableCell align="right">Brand</StyledTableCell>
+                <StyledTableCell align="right">Delete</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody >
               {rows.map((row) => (
                 <StyledTableRow key={row.name}  >
                   <StyledTableCell component="th" scope="row"  >
-                    <b className='table-code'>{row.name}</b>
+                    {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="left"><b>{row.calories}</b></StyledTableCell>
-                  <StyledTableCell align="left"><b>{row.fat}</b></StyledTableCell>
-                  <StyledTableCell align="center">
+                  <StyledTableCell align="right">{row.calories}</StyledTableCell>
+                  <StyledTableCell align="right">{row.fat}</StyledTableCell>
+                  <StyledTableCell align="right">
                     <Button variant="contained" color="success" className='Button-delete' ><DeleteIcon /></Button>
                     {/* <Button variant="contained" color="primary" className='Button-delete' ><DeleteIcon /></Button> */}
                   </StyledTableCell>
