@@ -2,9 +2,9 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,Alert, Stack } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Dialog,Snackbar, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Alert } from '@mui/material';
 import './BrandQuality.css'
 
 export const SearchBrandQuality = () => {
@@ -19,7 +19,10 @@ export const SearchBrandQuality = () => {
     setOpen(false);
     
   };
-
+  const handleCreate =() =>{
+    alert("Created");
+    <Alert severity="error">This is an error alert — check it out!</Alert>
+  }
 
   return (
  
@@ -64,12 +67,13 @@ export const SearchBrandQuality = () => {
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Create</Button>
+              <Button onClick={handleCreate} >Create</Button>
               <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </Dialog>
 
         </Box>
+        
     </div>
   );
 }
