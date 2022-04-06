@@ -5,9 +5,11 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,Alert, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './BrandQuality.css';
+
 
 export default function SearchBrandQuality() {
   const [open, setOpen] = React.useState(false);
@@ -18,6 +20,7 @@ export default function SearchBrandQuality() {
 
   const handleClose = () => {
     setOpen(false);
+
 
   };
   const handleCreate = () => {
@@ -68,6 +71,10 @@ export default function SearchBrandQuality() {
   ];
   const [search, setSearch] = React.useState('');
   const data = rows.filter(a => a.discription.toLowerCase().includes(search.toLowerCase()))
+
+  };
+
+
 
   return (
 
@@ -125,6 +132,7 @@ export default function SearchBrandQuality() {
       </Box>
 
       <div className='body-down'>
+
         <div className='table-cont'>
           <TableContainer  >
 
@@ -163,6 +171,7 @@ export default function SearchBrandQuality() {
         </div>
 
       </div>
+
     </div>
   );
 }

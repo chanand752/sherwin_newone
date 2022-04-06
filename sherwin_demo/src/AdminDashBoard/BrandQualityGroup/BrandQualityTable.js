@@ -51,12 +51,13 @@ function BrandQualityTable() {
 
  
   const rows = [
+
     createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
     createData('AFL31', 'AFL31 HYDROPLUS SELF SEALER', 'Sherwin-Williams Product Finishes Europe'),
     createData('AD1430', 'AD1430 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
-  ];
+
 
 
 
@@ -72,23 +73,25 @@ function BrandQualityTable() {
         <TableContainer  >
           <Table  >
             <TableHead >
-              <TableRow >
+              <TableRow className='table'>
                 <StyledTableCell>Code</StyledTableCell>
-                <StyledTableCell align="left">Discription</StyledTableCell>
-                <StyledTableCell align="left">Brand</StyledTableCell>
-                <StyledTableCell align="center">Delete</StyledTableCell>
+                <StyledTableCell align="right">Discription</StyledTableCell>
+                <StyledTableCell align="right">Brand</StyledTableCell>
+                <StyledTableCell align="right">Delete</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody >
               {rows.map((row, index) => (
                 <StyledTableRow key={index}  >
                   <StyledTableCell component="th" scope="row"  >
-                    <b className='table-code'>{row.name}</b>
+                    {row.name}
                   </StyledTableCell>
+
                   <StyledTableCell align="left"><b>{row.calories}</b></StyledTableCell>
                   <StyledTableCell align="left"><b>{row.fat}</b></StyledTableCell>
                   <StyledTableCell align="center">
                     <Button variant="contained" color="success" className='Button-delete' onClick={e => handleDelete(index,e)} ><DeleteIcon /></Button>
+
                     {/* <Button variant="contained" color="primary" className='Button-delete' ><DeleteIcon /></Button> */}
                   </StyledTableCell>
                 </StyledTableRow>
