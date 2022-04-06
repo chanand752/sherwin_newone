@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Alert } from '@mui/material';
 import './BrandQuality.css'
 
 function SearchBrandQuality() {
@@ -16,8 +16,12 @@ function SearchBrandQuality() {
 
   const handleClose = () => {
     setOpen(false);
+    
   };
-
+  const handleCreate =() =>{
+    alert("Created");
+    <Alert severity="error">This is an error alert — check it out!</Alert>
+  }
 
   return (
  
@@ -62,12 +66,13 @@ function SearchBrandQuality() {
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Create</Button>
+              <Button onClick={handleCreate} >Create</Button>
               <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </Dialog>
 
         </Box>
+        
     </div>
   );
 }
