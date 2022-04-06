@@ -30,10 +30,11 @@ export default function SwSideBar() {
       <Row >
         <Col lg="auto" className='col-side' style={{
                   padding: '0px',
-                  height:'91vh',
+                  // height:'91vh',
+                  height:'90.5vh'
                 }}>
           <CDBSidebar textColor="#000000" backgroundColor="rgb(128, 204, 255)">
-          {/* <CDBSidebar textColor="#fff" backgroundColor="#333"> */}
+          {/* <CDBSidebar textColor="#fff" backgroundColor="#2F2F2F" > */}
             <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
               <a
                 className="text-decoration-none"
