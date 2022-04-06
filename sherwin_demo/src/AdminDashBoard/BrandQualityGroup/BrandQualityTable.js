@@ -49,6 +49,7 @@ function BrandQualityTable() {
 
   }
 
+ 
   const rows = [
     createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
     createData('AFL31', 'AFL31 HYDROPLUS SELF SEALER', 'Sherwin-Williams Product Finishes Europe'),
@@ -59,11 +60,15 @@ function BrandQualityTable() {
 
 
 
-
   return (
     <div className='body-down'>
       <div className='table-cont'>
-
+      {/* <h4><b>Check Available Cities  :  </b><input type="text" placeholder="Enter City Name" value={search} onChange={(e) => setSearch(e.target.value)} /></h4>
+      {rows.filter(a => a.name.toLowerCase().includes(search.toLowerCase())).map(b => {
+                        return <div>
+                            <h4>{b.name}</h4>
+                        </div>
+                    })} */}
         <TableContainer  >
           <Table  >
             <TableHead >
@@ -83,7 +88,7 @@ function BrandQualityTable() {
                   <StyledTableCell align="left"><b>{row.calories}</b></StyledTableCell>
                   <StyledTableCell align="left"><b>{row.fat}</b></StyledTableCell>
                   <StyledTableCell align="center">
-                    <Button variant="contained" color="success" className='Button-delete' onClick={e => handleDelete(index, e)}  ><DeleteIcon /></Button>
+                    <Button variant="contained" color="success" className='Button-delete' onClick={e => handleDelete(index,e)} ><DeleteIcon /></Button>
                     {/* <Button variant="contained" color="primary" className='Button-delete' ><DeleteIcon /></Button> */}
                   </StyledTableCell>
                 </StyledTableRow>
