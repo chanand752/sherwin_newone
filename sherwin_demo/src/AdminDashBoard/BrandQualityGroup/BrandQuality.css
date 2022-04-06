@@ -73,7 +73,6 @@
 .table {
   border: 20px;
 }
-
-.button-color {
-  color: #7fff00;
+.table-code{
+  color: rgb(0, 183, 255);
 }

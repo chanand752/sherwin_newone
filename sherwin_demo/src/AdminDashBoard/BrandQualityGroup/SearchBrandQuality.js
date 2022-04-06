@@ -9,15 +9,7 @@ import './BrandQuality.css'
 
 export const SearchBrandQuality = () => {
   const [open, setOpen] = React.useState(false); 
-  // const handleClose = (
-  //   event ?: React.SyntheticEvent | Event,
-  //   reason ?: string
-  // ) => {
-  //   if(reason === 'clickaway') {
-  //    return
-  //   }
-  //   setOpen(false)
-  // }
+  
 
   const handleClickOpen = () => {
     setOpen(true);
