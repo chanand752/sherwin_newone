@@ -2,16 +2,18 @@
 import React from 'react';
 import { Button } from '@mui/material';
 // import { Button } from 'react-bootstrap';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,createTheme } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,createTheme, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './BrandQuality.css'
 
 
-function BrandQualityTable() {
+function BrandQualityTable(Props) {
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.common.white,
+      border: 5,
+      padding:10,
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -22,11 +24,12 @@ function BrandQualityTable() {
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
+     
       
     },
     // hide last border
     '&:last-child td, &:last-child th': {
-      border: 0,
+      border: 5,
     },
   }));
 
