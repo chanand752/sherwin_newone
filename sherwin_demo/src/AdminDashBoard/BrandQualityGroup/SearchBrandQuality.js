@@ -3,14 +3,15 @@ import React from 'react';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Alert } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import './BrandQuality.css'
+import './BrandQuality.css;
 
 export default function SearchBrandQuality() {
   const [open, setOpen] = React.useState(false);
+ 
   const handleClickOpen = () => {
     setOpen(true);
   };
