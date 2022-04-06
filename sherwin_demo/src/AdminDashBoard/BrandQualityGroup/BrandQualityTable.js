@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 // import { Button } from 'react-bootstrap';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,createTheme } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,createTheme, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './BrandQuality.css'
 
@@ -12,6 +12,8 @@ function BrandQualityTable() {
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.common.white,
+      border: 5,
+      padding:10,
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -22,11 +24,12 @@ function BrandQualityTable() {
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
+     
       
     },
     // hide last border
     '&:last-child td, &:last-child th': {
-      border: 0,
+      border: 5,
     },
   }));
 
@@ -52,22 +55,22 @@ function BrandQualityTable() {
         <TableContainer  >
           <Table  >
             <TableHead >
-              <TableRow className='table'>
-                <StyledTableCell>Code</StyledTableCell>
-                <StyledTableCell align="right">Discription</StyledTableCell>
-                <StyledTableCell align="right">Brand</StyledTableCell>
-                <StyledTableCell align="right">Delete</StyledTableCell>
+              <TableRow>
+                <StyledTableCell align="left" >Code</StyledTableCell>
+                <StyledTableCell align="center">Discription</StyledTableCell>
+                <StyledTableCell align="center">Brand</StyledTableCell>
+                <StyledTableCell align="center">Delete</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody >
               {rows.map((row) => (
                 <StyledTableRow key={row.name}  >
-                  <StyledTableCell component="th" scope="row"  >
+                  <StyledTableCell component="th" scope="row" align="left"  >
                     {row.name}
                   </StyledTableCell>
-                  <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                  <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                  <StyledTableCell align="right">
+                  <StyledTableCell align="center">{row.calories}</StyledTableCell>
+                  <StyledTableCell align="center">{row.fat}</StyledTableCell>
+                  <StyledTableCell align="center">
                     <Button variant="contained" color="success" className='Button-delete' ><DeleteIcon /></Button>
                     {/* <Button variant="contained" color="primary" className='Button-delete' ><DeleteIcon /></Button> */}
                   </StyledTableCell>

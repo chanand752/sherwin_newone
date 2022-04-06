@@ -2,13 +2,22 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,Alert, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Dialog,Snackbar, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import './BrandQuality.css'
 
-function SearchBrandQuality() {
-  const [open, setOpen] = React.useState(false);
+export const SearchBrandQuality = () => {
+  const [open, setOpen] = React.useState(false); 
+  // const handleClose = (
+  //   event ?: React.SyntheticEvent | Event,
+  //   reason ?: string
+  // ) => {
+  //   if(reason === 'clickaway') {
+  //    return
+  //   }
+  //   setOpen(false)
+  // }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -16,6 +25,7 @@ function SearchBrandQuality() {
 
   const handleClose = () => {
     setOpen(false);
+    
   };
 
 
