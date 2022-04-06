@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Dropdown, Button, ButtonGroup, InputGroup, FormControl, DropdownButton, Table,Form } from "react-bootstrap";
+import { Container, Row, Col, Dropdown, Button, ButtonGroup, InputGroup, FormControl, DropdownButton, Table, Form } from "react-bootstrap";
 import './PriceGrid.css';
 
 export default function PriceGrid() {
@@ -69,9 +69,14 @@ export default function PriceGrid() {
                     </Col>
                 </Row><br />
                 <Row>
-                    <Col>
-                        <h6>Price Grid for :</h6>
 
+                    <Col className="third-row">
+                        <h6>Price Grid for ACRNA:</h6>
+                        <p className="confirm-change">*Click Save to confirm changes</p>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
                         <Table striped bordered hover Style={rowStyleFormat}>
                             <thead>
                                 <tr>
