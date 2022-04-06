@@ -2,14 +2,17 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
-import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled, Stack } from '@mui/material';
+import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled,Alert, Stack } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Alert } from '@mui/material';
+import { Dialog,Snackbar, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import './BrandQuality.css'
 
 export const SearchBrandQuality = () => {
   const [open, setOpen] = React.useState(false); 
-  
+  const [change, setChange] = React.useState();
+
+
+ 
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -19,10 +22,9 @@ export const SearchBrandQuality = () => {
     setOpen(false);
     
   };
-  const handleCreate =() =>{
-    alert("Created");
-    <Alert severity="error">This is an error alert — check it out!</Alert>
-  }
+
+  // setChange = rows.filter((eachUser) =>
+  //       eachUser.Ename.toLowerCase().includes(setChange.toLowerCase()))
 
   return (
  
@@ -41,7 +43,7 @@ export const SearchBrandQuality = () => {
           }}
         >
           <div>
-            <SearchIcon className='icon' /><TextField id="standard-basic" label="Filter Groups" variant="standard" />
+            <SearchIcon className='icon' /><TextField id="standard-basic" label="Filter Groups" variant="standard" value={change} />
           </div>
 
           {/* <Button variant="contained" color="success" className='add-button' >Create New Quality Group</Button> */}
@@ -67,13 +69,12 @@ export const SearchBrandQuality = () => {
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleCreate} >Create</Button>
+              <Button onClick={handleClose}>Create</Button>
               <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </Dialog>
 
         </Box>
-        
     </div>
   );
 }
