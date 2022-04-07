@@ -60,7 +60,7 @@ export default function SearchBrandQuality() {
     console.log('deleted');
 
   }
-
+ console.log("Hai");
 
   const rows = [
     createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
