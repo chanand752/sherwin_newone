@@ -3,6 +3,16 @@ import { Container, Row, Col, Dropdown, Button, ButtonGroup, InputGroup, FormCon
 import './PriceGrid.css';
 
 export default function PriceGrid() {
+    const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    
+  };
     function rowStyleFormat() {
         return { backgroundColor: 'blue' };
     }
@@ -65,7 +75,7 @@ export default function PriceGrid() {
 
                     </Col>
                     <Col>
-                        <Button className="Grid-Button" variant="primary" >Search</Button>
+                        <Button className="Grid-Button" variant="primary"  onClick={handleClickOpen} >Search</Button>
                     </Col>
                 </Row><br />
                 <Row>
