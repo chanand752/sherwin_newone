@@ -57,6 +57,7 @@ export default function SearchBrandQuality() {
     createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
   ];
+  
   const [search, setSearch] = React.useState('');
   const data = rows.filter(a => a.discription.toLowerCase().includes(search.toLowerCase()))
 
