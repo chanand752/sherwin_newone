@@ -7,7 +7,7 @@ import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, Table
 import SearchIcon from '@mui/icons-material/Search';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Alert } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import './BrandQuality.css;
+import './BrandQuality.css';
 
 export default function SearchBrandQuality() {
   const [open, setOpen] = React.useState(false);
@@ -58,7 +58,7 @@ export default function SearchBrandQuality() {
     createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
   ];
-  
+
   const [search, setSearch] = React.useState('');
   const data = rows.filter(a => a.discription.toLowerCase().includes(search.toLowerCase()))
 
