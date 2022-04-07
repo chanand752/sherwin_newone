@@ -25,7 +25,7 @@ function BrandQualityNavbar() {
           <SpeedIcon />
 
 
-          <Button variant="text" className='admin-button' style={{ textTransform: 'none' }} >swadmin</Button>
+          <Button variant="text" className='admin-button' style={{ textTransform: 'none',color:'#482db5' }} >swadmin</Button>
           <PersonIcon />
         </Toolbar>
       </nav>
