@@ -57,8 +57,7 @@ function BrandQualityTable() {
     createData('AD1430', 'AD1430 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
     createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
-
-
+  ]
 
 
   return (
@@ -84,7 +83,7 @@ function BrandQualityTable() {
               {rows.map((row, index) => (
                 <StyledTableRow key={index}  >
                   <StyledTableCell component="th" scope="row"  >
-                    {row.name}
+                  <b className='table-code'>{row.name}</b>
                   </StyledTableCell>
 
                   <StyledTableCell align="left"><b>{row.calories}</b></StyledTableCell>
