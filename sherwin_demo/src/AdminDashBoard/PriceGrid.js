@@ -1,18 +1,18 @@
 import React from "react";
-import { Container, Row, Col, Dropdown, Button, ButtonGroup, InputGroup, FormControl, DropdownButton, Table,Form } from "react-bootstrap";
+import { Container, Row, Col, Dropdown, Button, ButtonGroup, InputGroup, FormControl, DropdownButton, Table, Form } from "react-bootstrap";
 import './PriceGrid.css';
 
 export default function PriceGrid() {
     const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
 
-  const handleClose = () => {
-    setOpen(false);
-    
-  };
+    const handleClose = () => {
+        setOpen(false);
+
+    };
     function rowStyleFormat() {
         return { backgroundColor: 'blue' };
     }
@@ -75,13 +75,18 @@ export default function PriceGrid() {
 
                     </Col>
                     <Col>
-                        <Button className="Grid-Button" variant="primary"  onClick={handleClickOpen} >Search</Button>
+                        <Button className="Grid-Button" variant="primary" onClick={handleClickOpen} >Search</Button>
                     </Col>
                 </Row><br />
-                <Row>
-                    <Col>
+                <Col className="third-row">
+                    <Row>
                         <h6>Price Grid for :</h6>
-
+                    </Row>
+                    <Row>
+                    <p className="confirm">*Click Save to Confirm Changes</p>
+                    </Row>
+                 </Col>
+                    <Row>
                         <Table striped bordered hover Style={rowStyleFormat}>
                             <thead>
                                 <tr>
@@ -103,8 +108,8 @@ export default function PriceGrid() {
                             </tbody>
                         </Table>
 
-                    </Col>
-                </Row>
+                    </Row>
+                
                 <Row>
                     <Col>
                         <p className="Error-Message">No Price Grid for the selected Brand and Quality.</p>
