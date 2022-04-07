@@ -61,10 +61,3 @@
   justify-content:center;
   gap: 10px;
 }
-.confirm-change{
-  color: rgb(58, 121, 216);
-}
-.third-row{
-  display: flex;
-  justify-content: space-between;
-}
