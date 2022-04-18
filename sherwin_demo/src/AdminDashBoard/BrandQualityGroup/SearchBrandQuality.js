@@ -20,7 +20,7 @@ function SearchBrandQuality() {
 
   ///////////////////////////////////////////////////////////
 
-  const [discription, setCreateDiscription] = React.useState(null)
+  const [description, setCreateDiscription] = React.useState(null)
   const [code, setCreateCode] = React.useState()
   const [state, setState] = useState()
   const [data, setData] = React.useState([])
@@ -87,8 +87,8 @@ function SearchBrandQuality() {
 
   const handleCreate = () => {
     setOpen(false);
-    const article = { code, discription };
-    axios.post('http://172.17.12.42:3020/data/createqualitygroup', article)
+    const article = { code, description };
+    axios.post('http://172.17.12.112:3000/data/createqualitygroup', article)
       .then(res => {
         console.log(res)
         setState(res.article);
@@ -132,7 +132,7 @@ function SearchBrandQuality() {
   const handleDelete = (code, e) => {
     e.preventDefault();
   
-    axios.delete(`http://172.17.12.42:3020/data/deletedataa`, {"data" : { "code" : code }}).then(
+    axios.delete(`http://172.17.12.112:3000/data/deletedataa`, {"data" : { "code" : code }}).then(
       res => console.log("Deleted!!!", res)
     ).catch(
       err => console.log(err)
@@ -167,7 +167,7 @@ function SearchBrandQuality() {
 
 
   useEffect(() => {
-    axios.get("http://172.17.12.42:3020/data/getdata", {
+    axios.get("http://172.17.12.112:3000/data/getdata", {
       headers: {
         'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
       }
@@ -224,7 +224,7 @@ function SearchBrandQuality() {
 
 
   const [search, setSearch] = React.useState('');
-  const searchBycode = data.filter(a => a.discription.toLowerCase().includes(search.toLowerCase()) || a.code.toLowerCase().includes(search.toLowerCase()))
+  const searchBycode = data.filter(a => a.description.toLowerCase().includes(search.toLowerCase()) || a.code.toLowerCase().includes(search.toLowerCase()))
 
   return (
     <div className='body-brand-quality'>
@@ -266,12 +266,12 @@ function SearchBrandQuality() {
             <TextField
               autoFocus
               margin="dense"
-              id="discription"
+              id="description"
               label="Description*"
               fullWidth
               variant="standard"
-              name='discription'
-              value={discription}
+              name='description'
+              value={description}
               onChange={handleInputChange2}
             />
 
@@ -306,7 +306,7 @@ function SearchBrandQuality() {
                       <StyledTableCell component="th" scope="row"  >
                         <b className='table-code'>{data.code}</b>
                       </StyledTableCell>
-                      <StyledTableCell align="left"><b>{data.discription}</b></StyledTableCell>
+                      <StyledTableCell align="left"><b>{data.description}</b></StyledTableCell>
                       <StyledTableCell align="left"><b>{data.brand}</b></StyledTableCell>
                       <StyledTableCell align="center">
                         <Button variant="contained" color="success" className='Button-delete' onClick={handleClickOpen2} ><DeleteIcon /></Button>
