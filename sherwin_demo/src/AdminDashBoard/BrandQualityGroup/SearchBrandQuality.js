@@ -357,8 +357,8 @@ function SearchBrandQuality() {
 
           //       </Snackbar>
           <Snackbar open={open1} autoHideDuration={6000} onClose={handleClose1}>
-            <Alert onClose={handleClose1} severity="success" sx={{ width: '100%' }}>
-              Deleted success fully!
+            <Alert onClose={handleClose1} severity="success" sx={{ width: '100%' }} className="alert-messsage" >
+              Deleted successfully!
             </Alert>
           </Snackbar>
         }
