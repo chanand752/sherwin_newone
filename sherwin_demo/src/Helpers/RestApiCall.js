@@ -7,8 +7,8 @@ const instance = axios.create({
 	})
 })
 
-const api = '/api'
-//const api = 'http://localhost:5001'
+//const api = '/api'
+const api = 'http://172.17.12.112:3000'
 
 const tokenHeader = {
 	headers: { 'Content-Type': 'application/json' } // Authorization: `Bearer ${localStorage.getItem('token')}`

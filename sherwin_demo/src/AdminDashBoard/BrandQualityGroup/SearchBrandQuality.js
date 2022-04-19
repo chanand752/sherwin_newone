@@ -9,6 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Snackbar, IconButton, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+
 import CloseIcon from '@mui/icons-material/Close';
 import './BrandQuality.css';
 
@@ -26,6 +27,11 @@ function SearchBrandQuality() {
   const [data, setData] = React.useState([])
   const [loading, setLoading] = useState(false)
 
+  //////////////////////////////////////////////////////
+
+  // kenduo react dialog code
+
+  
 
 
 
@@ -91,13 +97,15 @@ function SearchBrandQuality() {
     axios.post('http://172.17.12.112:3000/data/createqualitygroup', article)
       .then(res => {
         console.log(res)
-        setState(res.article);
+        //setState(res.article);
+        //setData(res.article)
+        getBrandaData()
       })
       .catch(err => {
         console.log(err)
       })
     console.log('Created')
-    // window.location.reload(false);
+     //window.location.reload(false);
   }
 
 
@@ -125,9 +133,7 @@ function SearchBrandQuality() {
     },
   }));
 
-  // function createData(code, discription, brand) {
-  //   return { code, discription, brand };
-  // }
+ 
 
   const handleDelete = (code, e) => {
     e.preventDefault();
@@ -137,21 +143,14 @@ function SearchBrandQuality() {
     ).catch(
       err => console.log(err)
     )
-    // console.log('deleted');
-    // window.location.reload(false);
+    console.log('deleted');
+    //  window.location.reload(false);
     setOpen1(true)
     setOpen2(false)
+    getBrandaData()
     
   }
 
-
-  // const rows = [
-  //   createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
-  //   createData('AFL31', 'AFL31 HYDROPLUS SELF SEALER', 'Sherwin-Williams Product Finishes Europe'),
-  //   createData('AD1430', 'AD1430 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
-  //   createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
-  //   createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
-  // ];
 
 
 
@@ -167,6 +166,11 @@ function SearchBrandQuality() {
 
 
   useEffect(() => {
+   getBrandaData()
+
+  }, []);
+
+  function getBrandaData() {
     axios.get("http://172.17.12.112:3000/data/getdata", {
       headers: {
         'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
@@ -178,8 +182,7 @@ function SearchBrandQuality() {
         setData(res.data)
         loader();
       })
-
-  }, []);
+  }
 
 
   function handleInputChange1(event) {
@@ -310,11 +313,9 @@ function SearchBrandQuality() {
                       <StyledTableCell align="left"><b>{data.brand}</b></StyledTableCell>
                       <StyledTableCell align="center">
                         <Button variant="contained" color="success" className='Button-delete' onClick={handleClickOpen2} ><DeleteIcon /></Button>
-                        {/* onClick={e => handleDelete(code, e)} */}
+                        
                         <div>
-                          {/* <Button variant="outlined" onClick={handleClickOpen2}>
-                            Open alert dialog
-                          </Button> */}
+                          
                           <Dialog
                             open={open2}
                             onClose={handleClose2}
@@ -369,3 +370,22 @@ function SearchBrandQuality() {
 
 export default memo (SearchBrandQuality);
 
+{/* <Button variant="outlined" onClick={handleClickOpen2}>
+                            Open alert dialog
+                          </Button> */}
+
+{/* onClick={e => handleDelete(code, e)} */}
+
+ // function createData(code, discription, brand) {
+  //   return { code, discription, brand };
+  // }
+
+
+  
+  // const rows = [
+  //   createData('AD1411', 'AD1411 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
+  //   createData('AFL31', 'AFL31 HYDROPLUS SELF SEALER', 'Sherwin-Williams Product Finishes Europe'),
+  //   createData('AD1430', 'AD1430 LAQVIN PRIME', 'Sherwin-Williams Product Finishes Europe'),
+  //   createData('AF72', 'AF72 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
+  //   createData('AF74', 'AF74 HYDRO WATERBORNE CLEAR SELF-SEALER FOR INTERIORS', 'Sherwin-Williams Product Finishes Europe'),
+  // ];
