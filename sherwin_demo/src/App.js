@@ -1,28 +1,27 @@
-// import ManageBrandFormalua from './AdminDashBoard/ManageBrandFormalNames';
-
-import PriceList from './AdminDashBoard/PriceList';
-import AdminPage from './AdminDashBoard/BrandQualityGroup/BrandQuality';
-import PriceGrid from './AdminDashBoard/PriceGrid';
 import './App.css';
 import SwSideBar from './AdminDashBoard/sideBar';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom'
+import LoginForm from './LoginForm';
+// import AdminPage from './AdminDashBoard/BrandQualityGroup/BrandQuality';
+
 
 
 function App() {
   return (
 
     <>
-      {/* <PriceGrid /> */}
-      {/* <AdminPage /> */}
-      <Router>
+    <Switch> 
+     <Route exact path="/login" component={LoginForm} />
+        <Route>
         <SwSideBar />
-      </Router>
-
-      {/* <ManageBrandFormalua /> */}
-      {/* <PriceList />   */}
+      </Route>
+      </Switch>
+     
+      {/* <Switch>
+      <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/" component={SwSideBar} />
+      </Switch> */}
     </>
-
-
   );
 }
 
