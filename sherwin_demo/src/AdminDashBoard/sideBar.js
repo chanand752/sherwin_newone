@@ -14,11 +14,16 @@ import {
   import PriceList from './PriceList';
   import PriceGrid from './PriceGrid';
   import { Route, Switch } from "react-router-dom";
-
+  import Cookies from 'js-cookie'
   import { Navbar, Nav, Offcanvas } from "react-bootstrap";
 
 
-export default function SwSideBar() {
+export default function SwSideBar(props) {
+  const onClickLogout = () => {
+    const {history} = props
+    sessionStorage.removeItem('jwt_token')
+  }
+
   return (
     <div>
       <BrandQualityNavbar />
@@ -55,6 +60,9 @@ export default function SwSideBar() {
                 <NavLink exact to="/Home/pricegrid" activeClassName="activeClicked">
                   <CDBSidebarMenuItem icon="table"> Price Grid</CDBSidebarMenuItem>
                 </NavLink>
+                <NavLink exact to="/login"  activeClassName="activeClicked"  onClick={onClickLogout} >
+                <CDBSidebarMenuItem icon="chart-line"> Logout</CDBSidebarMenuItem>
+                </NavLink>
                 
               </CDBSidebarMenu>
             </CDBSidebarContent>
@@ -79,7 +87,6 @@ export default function SwSideBar() {
             <Route path="/Home/brandqualitygroup" ><AdminPage /></Route>
             <Route path="/Home/pricelist" ><PriceList /></Route>
             <Route path="/Home/pricegrid" ><PriceGrid /></Route>
-           
           </Switch>
 
         </Col>

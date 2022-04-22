@@ -27,6 +27,8 @@ function SearchBrandQuality() {
   const [data, setData] = React.useState([])
   const [loading, setLoading] = useState(false)
 
+  var item_value = sessionStorage.getItem("jwt_token");
+ console.log(item_value)
   //////////////////////////////////////////////////////
 
   // kenduo react dialog code
