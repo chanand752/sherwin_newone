@@ -14,7 +14,7 @@ import {
   import PriceList from './PriceList';
   import PriceGrid from './PriceGrid';
   import { Route, Switch } from "react-router-dom";
-  import Cookies from 'js-cookie'
+import ProtectedRoute from '../ProtectedRoute';
   import { Navbar, Nav, Offcanvas } from "react-bootstrap";
 
 
@@ -84,7 +84,7 @@ export default function SwSideBar(props) {
         <Col >
 
           <Switch>
-            <Route path="/Home/brandqualitygroup" ><AdminPage /></Route>
+            <ProtectedRoute  path="/Home/brandqualitygroup" ><AdminPage /> </ProtectedRoute >
             <Route path="/Home/pricelist" ><PriceList /></Route>
             <Route path="/Home/pricegrid" ><PriceGrid /></Route>
           </Switch>
