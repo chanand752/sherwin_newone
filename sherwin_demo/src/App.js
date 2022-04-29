@@ -2,6 +2,7 @@ import './App.css';
 import SwSideBar from './AdminDashBoard/sideBar';
 import { Route, Switch } from 'react-router-dom'
 import LoginForm from './LoginForm';
+import ProtectedRoute from './ProtectedRoute'
 // import AdminPage from './AdminDashBoard/BrandQualityGroup/BrandQuality';
 
 
@@ -12,8 +13,10 @@ function App() {
     <>
     <Switch> 
      <Route exact path="/login" component={LoginForm} />
+     {/* <ProtectedRoute exact path="/Home/brandqualitygroup" component={SwSideBar} /> */}
         <Route>
         <SwSideBar />
+       
       </Route>
       </Switch>
      
