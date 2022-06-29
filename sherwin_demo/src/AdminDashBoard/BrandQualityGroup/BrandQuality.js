@@ -1,17 +1,18 @@
 // Parent Brand Quality
-import BrandQualityTable from "./BrandQualityTable";
-import BrandQualityNavbar from "./BrandQualitynavbar";
 import SearchBrandQuality from "./SearchBrandQuality";
-
+import Grid from '@mui/material/Grid';
+// import BrandQualityNavbar from "./BrandQualitynavbar";
 
 
 export default function AdminPage() {
     return (
-        <div >
-            {/* <BrandQualityNavbar /> */}
+        <Grid container spacing={12}>
+        <Grid item xs={12} md={12} sm={12}> 
+        <div>
             <SearchBrandQuality />
-            {/* <BrandQualityTable /> */}
-     
+            {/* < BrandQualityNavbar name="Anand" /> */}
         </div>
+        </Grid>
+        </Grid>
     )
 }

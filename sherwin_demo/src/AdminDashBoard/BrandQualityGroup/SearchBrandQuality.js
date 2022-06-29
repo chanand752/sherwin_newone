@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import axios from 'axios';
 import { TextField, TableCell, TableBody, Table, TableRow, TableContainer, TableHead, Paper, tableCellClasses, styled, Alert, Stack, MuiAlert } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-
+import Grid from '@mui/material/Grid';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Snackbar, IconButton, } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -21,22 +21,18 @@ function SearchBrandQuality() {
 
   ///////////////////////////////////////////////////////////
 
-  const [discription, setCreateDiscription] = React.useState(null)
-  const [code, setCreateCode] = React.useState()
+  const [Description, setCreateDescription] = React.useState(null)
+  const [BrandCode, setCreateCode] = React.useState()
   const [state, setState] = useState()
   const [data, setData] = React.useState([])
   const [loading, setLoading] = useState(false)
 
   var item_value = sessionStorage.getItem("jwt_token");
- console.log(item_value)
+
+//  console.log(item_value)
   //////////////////////////////////////////////////////
 
   // kenduo react dialog code
-
-  
-
-
-
 
   // delete dialogo method code
 
@@ -77,7 +73,6 @@ function SearchBrandQuality() {
       </IconButton>
     </React.Fragment>
   );
-
   //////////////////////////////////////////////////////////////
 
   const handleClickOpen = () => {
@@ -89,14 +84,13 @@ function SearchBrandQuality() {
     setOpen(false);
     console.log("closed");
 
-
   };
   // post Method
 
   const handleCreate = () => {
     setOpen(false);
-    const article = { code , discription};
-    axios.post('http://172.17.12.111:3456/data/createqualitygroup', article)
+    const article = { BrandCode , Description};
+    axios.post('http://172.17.12.141:3500/data/postapiS', article)
       .then(res => {
         console.log(res)
         //setState(res.article);
@@ -109,7 +103,6 @@ function SearchBrandQuality() {
     console.log('Created')
      //window.location.reload(false);
   }
-
 
   //Table
 
@@ -135,29 +128,25 @@ function SearchBrandQuality() {
     },
   }));
 
- 
 
-  const handleDelete = (code, e) => {
+
+
+  const handleDelete = (BrandCode, e) => {
     e.preventDefault();
   
-    axios.delete(`http://172.17.12.111:3456/data/deletedataa`, {"data" : { "code" : code }}).then(
+    axios.delete('http://172.17.12.141:3500/data/deleteapiS/'+ BrandCode).then(
+     
       res => console.log("Deleted!!!", res)
     ).catch(
       err => console.log(err)
     )
-    console.log('deleted');
+    
     //  window.location.reload(false);
     setOpen1(true)
     setOpen2(false)
     getBrandaData()
     
   }
-
-
-
-
-
-
 
   function loader() {
     setLoading(true)
@@ -173,7 +162,7 @@ function SearchBrandQuality() {
   }, []);
 
   function getBrandaData() {
-    axios.get("http://172.17.12.111:3456/data/getdata", {
+    axios.get("http://172.17.12.141:3500/data/getapiS", {
       headers: {
         'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'
       }
@@ -192,46 +181,16 @@ function SearchBrandQuality() {
   }
 
   function handleInputChange2(event) {
-    setCreateDiscription(event.target.value);
+    setCreateDescription(event.target.value);
   }
 
 
-  // function createBrand() {
-  //   alert(" " +  + " is selected for Updating")
-
-  //   axios.put(`http://172.17.12.42:4231/books/bookupdate`, { "":  }).then(
-  //     res => console.log("Updated!!!", res)
-  //   ).catch(
-  //     err => console.log(err)
-  //   )
-
-  // }
-
-
-  // function deleteBrand(code, e) {
-  //   alert("Brand " + code + " is selected for Delete")
-  //   e.preventDefault();
-
-  //   axios.delete(`http://172.17.12.42:4231/books/detailsdelete`, { "data": { "code": code } }).then(
-  //     res => console.log("Deleted!!!", res)
-  //   ).catch(
-  //     err => console.log(err)
-  //   )
-  //   Showbook(updateData);
-  // }
-
-
-
-
-
-
-
-
-
   const [search, setSearch] = React.useState('');
-  const searchBycode = data.filter(a => a.discription.toLowerCase().includes(search.toLowerCase()) || a.code.toLowerCase().includes(search.toLowerCase()))
+  const searchBycode = data.filter(a => a.Description.toLowerCase().includes(search.toLowerCase()) || a.BrandCode.toLowerCase().includes(search.toLowerCase()))
 
   return (
+    <Grid container spacing={2}>
+        <Grid item xs={12} md={12} sm={12}> 
     <div className='body-brand-quality'>
       <p className='title'><b>Available Brand Quality Groups</b></p>
 
@@ -246,7 +205,7 @@ function SearchBrandQuality() {
         }}
       >
         <div>
-          <SearchIcon className='icon' /><TextField id="standard-basic" label="Search By Discription or Code" variant="standard" value={search} onChange={(e) => setSearch(e.target.value)} />
+          <SearchIcon className='icon' /><TextField id="standard-basic" label="Search By Description or Code" variant="standard" value={search} onChange={(e) => setSearch(e.target.value)} />
         </div>
 
         {/* <Button variant="contained" color="success" className='add-button' >Create New Quality Group</Button> */}
@@ -258,12 +217,12 @@ function SearchBrandQuality() {
             <TextField
               autoFocus
               margin="dense"
-              id="code"
+              id="BrandCode"
               label="Quality Group Code*"
               fullWidth
               variant="standard"
-              name='code'
-              value={code}
+              name='BrandCode'
+              value={BrandCode}
               onChange={handleInputChange1}
 
             />
@@ -271,12 +230,12 @@ function SearchBrandQuality() {
             <TextField
               autoFocus
               margin="dense"
-              id="discription"
+              id="Description"
               label="Description*"
               fullWidth
               variant="standard"
-              name='discription'
-              value={discription}
+              name='Description'
+              value={Description}
               onChange={handleInputChange2}
             />
 
@@ -299,20 +258,20 @@ function SearchBrandQuality() {
               <TableHead >
                 <TableRow >
                   <StyledTableCell>Code</StyledTableCell>
-                  <StyledTableCell align="left">Discription</StyledTableCell>
+                  <StyledTableCell align="left">Description</StyledTableCell>
                   <StyledTableCell align="left">Brand</StyledTableCell>
                   <StyledTableCell align="center">Delete</StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody >
                 {
-                  searchBycode.map((data, code) =>
-                    <StyledTableRow key={code}  >
+                  searchBycode.map((data, BrandCode) =>
+                    <StyledTableRow key={BrandCode}  >
                       <StyledTableCell component="th" scope="row"  >
-                        <b className='table-code'>{data.code}</b>
+                        <b className='table-code'>{data.BrandCode}</b>
                       </StyledTableCell>
-                      <StyledTableCell align="left"><b>{data.discription}</b></StyledTableCell>
-                      <StyledTableCell align="left"><b>{data.brand}</b></StyledTableCell>
+                      <StyledTableCell align="left"><b>{data.Description}</b></StyledTableCell>
+                      <StyledTableCell align="left"><b>{data.Brand}</b></StyledTableCell>
                       <StyledTableCell align="center">
                         <Button variant="contained" color="success" className='Button-delete' onClick={handleClickOpen2} ><DeleteIcon /></Button>
                         
@@ -334,7 +293,7 @@ function SearchBrandQuality() {
                             </DialogContent>
                             <DialogActions>
                               <Button onClick={handleClose2}>No</Button>
-                              <Button onClick={e => handleDelete(data.code, e)}>
+                              <Button onClick={e => handleDelete(data.BrandCode, e)}>
                                 Yes
                               </Button>
                             </DialogActions>
@@ -367,6 +326,8 @@ function SearchBrandQuality() {
       </div>
 
     </div>
+    </Grid>
+    </Grid>
   );
 }
 
@@ -378,8 +339,8 @@ export default memo (SearchBrandQuality);
 
 {/* onClick={e => handleDelete(code, e)} */}
 
- // function createData(code, discription, brand) {
-  //   return { code, discription, brand };
+ // function createData(code, Description, brand) {
+  //   return { code, Description, brand };
   // }
 
 
