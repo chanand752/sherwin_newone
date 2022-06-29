@@ -13,20 +13,24 @@ import {
   import AdminPage from './BrandQualityGroup/BrandQuality';
   import PriceList from './PriceList';
   import PriceGrid from './PriceGrid';
-  import { Route, Switch } from "react-router-dom";
+  import { Switch, Route } from "react-router-dom";
 import ProtectedRoute from '../ProtectedRoute';
-  import { Navbar, Nav, Offcanvas } from "react-bootstrap";
+import Grid from '@mui/material/Grid';
+  // import { Navbar, Nav, Offcanvas } from "react-bootstrap";
 
 
-export default function SwSideBar(props) {
+export default function SwSideBar() {
+
   const onClickLogout = () => {
-    const {history} = props
     sessionStorage.removeItem('jwt_token')
+    sessionStorage.removeItem('loggedUser')
   }
 
   return (
+    <Grid container columns={{ xs: 12, md: 12, }}>
+    <Grid item xs={12} md={12} sm={12}> 
     <div>
-      <BrandQualityNavbar />
+      <BrandQualityNavbar  />
    
    <div style={{
                   padding: '0px ',
@@ -36,7 +40,7 @@ export default function SwSideBar(props) {
         <Col lg="auto" className='col-side' style={{
                   padding: '0px',
                   // height:'91vh',
-                  height:'90.5vh'
+                  height:'100vh'
                 }}>
           <CDBSidebar textColor="#000000" backgroundColor="rgb(128, 204, 255)">
           {/* <CDBSidebar textColor="#fff" backgroundColor="#2F2F2F" > */}
@@ -84,9 +88,13 @@ export default function SwSideBar(props) {
         <Col >
 
           <Switch>
-            <ProtectedRoute  path="/Home/brandqualitygroup" ><AdminPage /> </ProtectedRoute >
+          {/* <ProtectedRoute  path="/Home/brandqualitygroup" ><AdminPage /> </ProtectedRoute >
             <Route path="/Home/pricelist" ><PriceList /></Route>
-            <Route path="/Home/pricegrid" ><PriceGrid /></Route>
+            <Route path="/Home/pricegrid" ><PriceGrid /></Route> */}
+
+            <ProtectedRoute exact path="/Home/brandqualitygroup" ><AdminPage /> </ProtectedRoute >
+            <ProtectedRoute exact path="/Home/pricelist" ><PriceList /></ProtectedRoute >
+            <ProtectedRoute exact path="/Home/pricegrid" ><PriceGrid /></ProtectedRoute >
           </Switch>
 
         </Col>
@@ -95,5 +103,7 @@ export default function SwSideBar(props) {
     </Container>
     </div>
     </div>
+    </Grid>
+    </Grid>
   )
 }
